@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        / Custom Styling /
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ff7f50;
+        }
+
+        .navbar a {
+            color: #fff !important;
+        }
+
+        .navbar a:hover {
+            color: #ffebcd !important;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff7f50, #ff6347);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 50px;
+            color: #ff6347;
+            font-size: 2em;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .hero-section h2 {
+      font-size: 3rem;
+      font-weight: 2ren;
+      color: #ff7f50;
+      margin-top: 70px;
+      margin-left: 550px;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      font-weight: 300;
+      margin-left: 380px;
+
+    }
+
+   
+
+    / Projects Section /
+    .projects-section {
+      padding: 60px 10%;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .project-card {
+      position: relative;
+      background-color: #fff;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card .project-info {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .project-card .project-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .project-card .project-info p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #555;
+      margin-top: 10px;
+    }
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 50px 0;
+    color: #ff7f50;
+   
+   
+}
+
+header h1 {
+    font-size: 3em;
+    letter-spacing: 1px;
+}
+
+/* Testimonial Section */
+.testimonials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    transition: transform 0.3s ease;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+}
+
+.client-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.client-title {
+    color: #777;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40;
+    color: white;
+}
+
+/* Animation to fade in testimonials */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to each testimonial */
+.testimonial:nth-child(1) {
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.testimonial:nth-child(2) {
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.testimonial:nth-child(3) {
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+    / Responsive Design /
+    @media (max-width: 768px) {
+      .project-card-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+        footer {
+            background-color: #ff6347;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        / Responsive Design /
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Beautiful Man</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Project">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Testimonial">Testimonial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm David AnthemJR!</h1>
+            <p>Your perfect match for web development, design, and creativity.</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="container mt-5">
+        <h2 class="section-title">About Me</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="audit-client.png" alt="Profile Picture" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-md-6">
+                <p>I'm a passionate web developer with a love for creating beautiful, functional websites. I specialize in
+                    front-end development and have a keen eye for design. With a background in both design and programming, I bring
+                    creativity and technical expertise to all my projects.</p>
+                <p>In my spare time, I enjoy exploring new technologies, traveling, and indulging in good coffee.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mt-5">
+        <h2 class="section-title">Skills</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">HTML5</h5>
+                        <p>Expert in building semantic and structured websites.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                  <div class="card-body text-center">
+                      <h5 class="card-title">CSS3</h5>
+                      <p>Skilled in creating beautiful, responsive layouts..</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">JAVA</h5>
+                    <p>Proficient in adding interactivity features..</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+              <div class="card-body text-center">
+                  <h5 class="card-title">JAVA Script</h5>
+                  <p>Proficient in adding interactivity and dynamic features..</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Python</h5>
+                <p>Expert in building Android Apps.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+          <div class="card-body text-center">
+              <h5 class="card-title">UI UX</h5>
+              <p>Expert in building beautiful and modern UI .</p>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title">Graphic Designer</h5>
+            <p>Expert in building semantic and creative design.</p>
+        </div>
+    </div>
+</div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">XML</h5>
+                        <p>Expert in building semantic and structured websites.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">JASON</h5>
+                        <p>Expert in building semantic and structured websites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+      <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-overlay"></div>
+    <h2>Our Projects</h2>
+    <p>Explore the diverse range of projects we’ve delivered with passion and precision.</p>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="projects-section">
+    <div class="project-card-container">
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <img src="a436fbcc3db7e198bbeeb25dfbe5fb79.png" alt="Project 1">
+        <div class="project-info">
+          <h3>Creative Website Design</h3>
+          <p>This project involved creating a user-friendly, visually stunning website for a design agency. The website was designed to enhance user experience and showcase the agency's portfolio.</p>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <img src="464405d5e4a4819daed40d6f4767edc4.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>E-commerce Platform</h3>
+          <p>We developed a custom e-commerce platform for a retail business to streamline online sales, with an intuitive design and robust backend support for easy inventory management.</p>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="project-card">
+        <img src="set-company-logo-design-ideas-vector_53876-60292.avif" alt="Project 3">
+        <div class="project-info">
+          <h3>Brand Identity & Logo Design</h3>
+          <p>This project involved creating a complete brand identity for a startup, including a unique logo, color scheme, and marketing materials that captured the essence of the brand.</p>
+        </div>
+      </div>
+
+      <!-- Project Card 4 -->
+      <div class="project-card">
+        <img src="Mobile-app-development-process-01-1-min-1024x770_uznlx9.png" alt="Project 4">
+        <div class="project-info">
+          <h3>Mobile App Development</h3>
+          <p>We designed and developed a mobile app that allows users to track their fitness goals and progress, with a simple and intuitive interface to make health tracking enjoyable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    </section>
+
+    <header>
+        <h1>What Our Clients Say</h1>
+    </header>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="client01.webp" alt="Client 1" class="client-img">
+                <p class="testimonial-text">"This service transformed my business! The team is amazing, and the results speak for themselves."</p>
+                <h3>Mary Jhonson</h3>
+                <p class="client-title">CEO, XYZ Corp</p>
+            </div>
+            <div class="testimonial">
+                <img src="client02.avif" alt="Client 2" class="client-img">
+                <p class="testimonial-text">"I highly recommend them to anyone looking for a reliable and professional service."</p>
+                <h3>Jane Smith</h3>
+                <p class="client-title">Marketing Director, ABC Ltd.</p>
+            </div>
+            <div class="testimonial">
+                <img src="client03.jpg" alt="Client 3" class="client-img">
+                <p class="testimonial-text">"Their attention to detail and customer support is second to none. A fantastic experience!"</p>
+                <h3>John Doe</h3>
+                <p class="client-title">Founder, 123 Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5">
+        <h2 class="section-title">Contact Me</h2>
+        <form class="contact-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Contact No:</label>
+                <input type="email" class="form-control" id="email" placeholder="My Contact" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Potfoliyo. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
